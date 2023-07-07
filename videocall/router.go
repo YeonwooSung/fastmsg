@@ -1,5 +1,15 @@
 package videocall
 
+import (
+	"github.com/gofiber/fiber/v2"
+)
+
+func AddRouterForVoiceCalls(router fiber.Router) {
+	// add routers for api
+	router.Get("/log", nil)
+	router.Post("/log", nil)
+}
+
 // func main() {
 // 	file, err := os.OpenFile("info.log", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
 // 	if err != nil {

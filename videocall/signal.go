@@ -8,7 +8,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"strings"
 )
@@ -101,7 +100,7 @@ func unzip(in []byte) []byte {
 	if err != nil {
 		panic(err)
 	}
-	res, err := ioutil.ReadAll(r)
+	res, err := io.ReadAll(r)
 	if err != nil {
 		panic(err)
 	}

@@ -5,9 +5,67 @@ import (
 )
 
 func AddRouterForVoiceCalls(router fiber.Router) {
-	// add routers for api
-	router.Get("/log", nil)
-	router.Post("/log", nil)
+	// // sender to channel of track
+	// peerConnectionMap := make(map[string]chan *webrtc.Track)
+
+	// m := webrtc.MediaEngine{}
+
+	// // Setup the codecs you want to use.
+	// // Only support VP8(video compression), this makes our proxying code simpler
+	// m.RegisterCodec(webrtc.NewRTPVP8Codec(webrtc.DefaultPayloadTypeVP8, 90000))
+
+	// api := webrtc.NewAPI(webrtc.WithMediaEngine(m))
+
+	// peerConnectionConfig := webrtc.Configuration{
+	// 	ICEServers: []webrtc.ICEServer{
+	// 		{
+	// 			URLs: []string{"stun:stun.l.google.com:19302"},
+	// 		},
+	// 	},
+	// }
+
+	// // add routers for api
+	// router.Post("/webrtc/sdp/m/:meetingId/c/:userID/p/:peerId/s/:isSender", func(c *fiber.Ctx) {
+	// 	isSender := c.Params("isSender")
+	// 	userID := c.Params("userID")
+	// 	peerID := c.Params("peerId")
+
+	// 	var session Sdp
+	// 	if err := c.ShouldBindJSON(&session); err != nil {
+	// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+	// 		return
+	// 	}
+
+	// 	offer := webrtc.SessionDescription{}
+	// 	Decode(session.Sdp, &offer)
+
+	// 	// Create a new RTCPeerConnection
+	// 	// this is the gist of webrtc, generates and process SDP
+	// 	peerConnection, err := api.NewPeerConnection(peerConnectionConfig)
+	// 	if err != nil {
+	// 		log.Fatal(err)
+	// 	}
+	// 	if !isSender {
+	// 		recieveTrack(peerConnection, peerConnectionMap, peerID)
+	// 	} else {
+	// 		createTrack(peerConnection, peerConnectionMap, userID)
+	// 	}
+	// 	// Set the SessionDescription of remote peer
+	// 	peerConnection.SetRemoteDescription(offer)
+
+	// 	// Create answer
+	// 	answer, err := peerConnection.CreateAnswer(nil)
+	// 	if err != nil {
+	// 		log.Fatal(err)
+	// 	}
+
+	// 	// Sets the LocalDescription, and starts our UDP listeners
+	// 	err = peerConnection.SetLocalDescription(answer)
+	// 	if err != nil {
+	// 		log.Fatal(err)
+	// 	}
+	// 	c.JSON(http.StatusOK, Sdp{Sdp: Encode(answer)})
+	// })
 }
 
 // func main() {
